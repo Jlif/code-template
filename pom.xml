@@ -6,6 +6,7 @@
     <modules>
         <module>multi-datasource</module>
         <module>chain-of-responsibility</module>
+        <module>spring-boot-demo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
