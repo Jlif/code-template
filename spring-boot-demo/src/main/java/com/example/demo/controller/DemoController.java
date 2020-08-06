@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.LocalDateTimeEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 public class DemoController {
 
     @GetMapping("/")
-    public String demo(LocalDateTimeEntity entity) {
+    public String demo(@RequestBody LocalDateTimeEntity entity) {
         System.out.println(entity.getStart());
         return "hello";
     }
