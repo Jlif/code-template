@@ -36,7 +36,7 @@ public class FirstDataSourceConfig {
     public SqlSessionFactory firstSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(firstDataSource());
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mapper/test1"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/test1"));
         return bean.getObject();
     }
 
