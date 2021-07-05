@@ -19,7 +19,6 @@ public class CustomLocalDateTimeDeserializer extends JsonDeserializer<LocalDateT
     public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         long timestamp = Long.parseLong(jsonParser.getText());
         Date date = new Date(timestamp);
-        LocalDateTime localDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        return localDateTime;
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 }
