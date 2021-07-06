@@ -12,16 +12,18 @@ import java.util.Random;
  */
 
 /**
- * 等待通知模型实现单生产者单消费者
+ * 等待通知模型实现多生产者多消费者
  */
-public class ProducerConsumerDemo1 {
+public class ProducerConsumerDemo2 {
 
     private static final Object lock = new Object();
     private static final List<Integer> list = new LinkedList<>();
 
     public static void main(String[] args) {
-        new Thread(new Producer()).start();
-        new Thread(new Consumer()).start();
+        new Thread(new Producer(), "生产者1").start();
+        new Thread(new Producer(), "生产者2").start();
+        new Thread(new Consumer(), "消费者1").start();
+        new Thread(new Consumer(), "消费者2").start();
     }
 
 
@@ -32,14 +34,13 @@ public class ProducerConsumerDemo1 {
         public void run() {
             while (true) {
                 synchronized (lock) {
-                    if (list.isEmpty()) {
-                        int i = new Random().nextInt(100);
-                        System.out.println("生产 - " + i);
-                        list.add(i);
-                    } else {
+                    while (!list.isEmpty()) {
                         lock.wait();
                     }
-                    Thread.sleep(200);
+                    int i = new Random().nextInt(100);
+                    System.out.println(Thread.currentThread().getName() + " - " + i);
+                    list.add(i);
+                    Thread.sleep(100);
                     lock.notifyAll();
                 }
             }
@@ -53,15 +54,15 @@ public class ProducerConsumerDemo1 {
         public void run() {
             while (true) {
                 synchronized (lock) {
-                    if (!list.isEmpty()) {
-                        System.out.println("消费 - " + list.remove(0));
-                    } else {
+                    while (list.isEmpty()) {
                         lock.wait();
                     }
-                    Thread.sleep(150);
+                    System.out.println(Thread.currentThread().getName() + " - " + list.remove(0));
+                    Thread.sleep(100);
                     lock.notifyAll();
                 }
             }
         }
     }
+
 }
