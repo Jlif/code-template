@@ -1,26 +1,22 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.LocalDateTimeEntity;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.LocalDateTime;
 
 /**
  * @author jiangchen
  * @date 2020/08/04
  */
+@Api(tags = "测试接口组")
 @RestController
 public class DemoController {
 
+    @ApiOperation("根目录")
     @GetMapping("/")
-    public String demo(@RequestBody LocalDateTimeEntity entity) {
-        System.out.println(entity.getStart());
+    public String demo() {
         return "hello";
     }
 
-    public static void main(String[] args) {
-        System.out.println(LocalDateTime.now());
-    }
 }
