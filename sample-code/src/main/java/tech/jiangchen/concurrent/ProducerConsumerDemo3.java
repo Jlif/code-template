@@ -4,11 +4,6 @@ import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
- * @author jiangchen
- * @date 2021/07/07
- */
-
-/**
  * 使用阻塞队列模拟实现生产消费模型
  */
 public class ProducerConsumerDemo3 {

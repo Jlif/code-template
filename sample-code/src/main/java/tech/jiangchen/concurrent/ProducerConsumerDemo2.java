@@ -7,11 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @author jiangchen
- * @date 2021/7/6
- */
-
-/**
  * 等待通知模型实现多生产者多消费者
  */
 public class ProducerConsumerDemo2 {
