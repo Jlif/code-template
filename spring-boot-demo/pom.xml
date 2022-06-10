@@ -59,6 +59,10 @@
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>1.4.1</version>
+				<configuration>
+					<verbose>false</verbose>
+					<overwrite>true</overwrite>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
