@@ -15,27 +15,27 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/test"
+                        connectionURL="jdbc:mysql://localhost:3306/test2"
                         userId="root"
                         password="123456">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="tech.jiangchen.springbootdemo.entity.test"
+        <javaModelGenerator targetPackage="tech.jiangchen.springbootdemo.entity.test2"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mybatis/mapper/test" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="mybatis/mapper/test2" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="tech.jiangchen.springbootdemo.mapper.test"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="tech.jiangchen.springbootdemo.mapper.test2"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="test" tableName="user" domainObjectName="User"/>
+        <table tableName="t_user2" domainObjectName="User2"/>
 
     </context>
 </generatorConfiguration>

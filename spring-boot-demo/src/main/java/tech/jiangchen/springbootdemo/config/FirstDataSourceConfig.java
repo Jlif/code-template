@@ -19,27 +19,28 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @Configuration
 @MapperScan(value = "tech.jiangchen.springbootdemo.mapper.test", sqlSessionFactoryRef = "", sqlSessionTemplateRef = "")
 public class FirstDataSourceConfig {
+
     @Bean
-    @Primary
     @ConfigurationProperties("app.datasource.first")
     public DataSourceProperties firstDataSourceProperties() {
         return new DataSourceProperties();
     }
 
     @Bean
-    @Primary
     public HikariDataSource firstDataSource() {
         return firstDataSourceProperties().initializeDataSourceBuilder().type(HikariDataSource.class).build();
     }
 
+    @Primary
     @Bean
     public SqlSessionFactory firstSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(firstDataSource());
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/test"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/test/**/*.xml"));
         return bean.getObject();
     }
 
+    @Primary
     @Bean
     public SqlSessionTemplate firstSqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(firstSqlSessionFactory());

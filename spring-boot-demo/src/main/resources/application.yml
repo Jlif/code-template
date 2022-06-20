@@ -4,7 +4,7 @@ server:
 app:
   datasource:
     first:
-      url: jdbc:mysql://localhost:3303/test1
+      url: jdbc:mysql://localhost:3303/test
       username: root
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
