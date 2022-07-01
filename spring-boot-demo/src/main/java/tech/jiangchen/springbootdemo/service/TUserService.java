@@ -1,9 +1,16 @@
 package tech.jiangchen.springbootdemo.service;
 
 import tech.jiangchen.springbootdemo.entity.TUser;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-import java.util.List;
+/**
+ * <p>
+ *  服务类
+ * </p>
+ *
+ * @author jiangchen
+ * @since 2022-07-01
+ */
+public interface TUserService extends IService<TUser> {
 
-public interface TUserService {
-    List<TUser> findByName(String name);
 }

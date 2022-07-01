@@ -1,21 +1,20 @@
 package tech.jiangchen.springbootdemo.service.impl;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import tech.jiangchen.springbootdemo.dao.TUserRepository;
 import tech.jiangchen.springbootdemo.entity.TUser;
+import tech.jiangchen.springbootdemo.dao.TUserMapper;
 import tech.jiangchen.springbootdemo.service.TUserService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-@RequiredArgsConstructor
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author jiangchen
+ * @since 2022-07-01
+ */
 @Service
-public class TUserServiceImpl implements TUserService {
+public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements TUserService {
 
-    private final TUserRepository tUserRepository;
-
-    @Override
-    public List<TUser> findByName(String name) {
-        return tUserRepository.findByName(name);
-    }
 }
