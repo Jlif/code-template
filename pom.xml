@@ -12,6 +12,7 @@
         <module>spring-boot-demo</module>
         <module>sample-code</module>
         <module>spring-boot-3.0-demo</module>
+        <module>design-patterns</module>
     </modules>
 
 </project>
