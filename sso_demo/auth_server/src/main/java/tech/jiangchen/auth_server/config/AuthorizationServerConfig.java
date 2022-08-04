@@ -97,8 +97,7 @@ public class AuthorizationServerConfig {
         UserDetails userDetails = User.withDefaultPasswordEncoder()
                 .username("user")
                 .password("password")
-                .roles("USER", "admin")
-                .authorities("read")
+                .roles("USER")
                 .build();
 
         // Save init user in db
