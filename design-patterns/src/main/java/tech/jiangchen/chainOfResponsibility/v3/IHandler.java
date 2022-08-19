@@ -1,4 +1,5 @@
 package tech.jiangchen.chainOfResponsibility.v3;
 
-public class Handler {
+public interface IHandler {
+    boolean handle();
 }
